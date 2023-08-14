@@ -30,7 +30,6 @@ def get_message(id: int, db: Session=Depends(get_db), current_user: UserAuth=Dep
 # Update Message
 @router.put('/update/{id}')
 def update_message(id: int, request: MessageBase, db: Session=Depends(get_db), current_user: UserAuth=Depends(get_current_user)):
-    print('*'*50, current_user)
     return db_message.update_message(db, id, request, current_user)
 
 # Delete Message
